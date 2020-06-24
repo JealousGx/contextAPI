@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
 import './App.css';
 import Parent from './Parent.js';
+import contextValue from './contextValue';
 
 function App() {
-  let [num, setNum] = useState(24);
+  let value = useState(68);
   return (
     <div>
-      <Parent number = {num}></Parent><br/>
-      <button onClick = {() => setNum(++num)}>Increase number</button>
+      <contextValue.Provider value={value}>
+      <Parent></Parent><br/>
+      </contextValue.Provider>
     </div>
   );
 }
